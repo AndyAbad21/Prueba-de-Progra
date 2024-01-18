@@ -1,0 +1,42 @@
+<div class="contenedor-principal">
+    <h1>Clientes</h1>
+
+    <div class="contenedor-form">
+        <form action="">
+                <tr>
+                    <td>Codigo</td>
+                    <td><input type="number" name="txtCodigo" [(ngModel)]="cliente.codigo"></td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td><input type="text" name="txtDNI" [(ngModel)]="cliente.dni"></td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input type="text" name="txtNombre" [(ngModel)]="cliente.nombre"></td>
+                </tr>
+
+            <button (click)="guardar()">Guardarr</button>
+            <button (click)="cancelar()">Cancelar</button>
+            <button (click)="actualizar()">Actualizar</button>
+        </form>
+    </div>
+
+    <div class="contenedor-tabla">
+        <table>
+            <tr>
+                <th>Codigo</th>
+                <th>dni</th>
+                <th>nombre</th>
+            </tr>
+
+            <tr *ngFor="let c of clientes | async">
+                <td>{{c.codigo}}</td>
+                <td>{{c.dni}}</td>
+                <td>{{c.nombre}}</td>
+                <button (click)="eliminar(c.codigo)">Eliminar</button>
+                <button (click)="editar(c)">Editar</button>
+            </tr>
+        </table>
+    </div>
+</div>
